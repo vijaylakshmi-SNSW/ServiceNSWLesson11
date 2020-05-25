@@ -20,10 +20,18 @@ function askQuestion(question) {
 async function Program() {
     let city = await askQuestion("Which city temperature you want to know: ") ;
     let response = await axios.get(`http://api.openweathermap.org/data/2.5/forecast?q=${city}&APPID=${weatherApiKey}`);
-    console.log(response.main);
+    for (let i = 0; i < response.data.list.length; i++) {
+        const temp = response.data.list[i].main.temp_max;
+        console.log(temp - 273.1);
+        
+
+    }
+        
+    }
+    // console.log(response.data.list[0].main.temp_max -273);
    //console.log(`The Max temperature in ${response.main} is ${response.main.temp_max }`);
 
-}
+// }
 Program().then(() => {
     process.exit(0);
 });
