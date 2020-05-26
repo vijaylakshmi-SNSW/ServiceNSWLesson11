@@ -20,16 +20,19 @@ describe("testing the numbers module", () => {
             expect(() => multipleNumbers(1, "B")).to.throw();
             expect(() => multipleNumbers("A", 2)).to.throw();
         });
-        it("should work for strings if they can be parsed as numbers", () => {
-            expect(multipleNumbers("4", 5)).to.eql(20);
-            expect(multipleNumbers("4.5", 5)).to.eql(22.5);
-            expect(multipleNumbers("-4", 5)).to.eql(-20);
-        });
+        // it("should work for strings if they can be parsed as numbers", () => {
+        //     expect(multipleNumbers("4", 5)).to.eql(20);
+        //     expect(multipleNumbers("4.5", 5)).to.eql(22.5);
+        //     expect(multipleNumbers("-4", 5)).to.eql(-20);
+        // });
         it("should throw an error when no numbers are passed in", () => {
             expect(() => multipleNumbers()).to.throw();
         });
         it("should throw an error when one number is passed in", () => {
             expect(() => multipleNumbers(1)).to.throw();
         });
+    it("should throw an error if any one number is 0", () => {
+        expect(()=> multipleNumbers()).to.throw();
+    });
     });
 });
